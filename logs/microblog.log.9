@@ -1,4 +1,4 @@
-2020-04-23 15:32:48,175 ERROR: Exception on / [GET] [in /Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2020-04-23 15:33:12,424 ERROR: Exception on / [GET] [in /Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -53,7 +53,8 @@ Traceback (most recent call last):
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1776, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.BuildError: Could not build url for endpoint 'main.edit_bill'. Did you forget to specify values ['bill_id']?
-2020-04-23 15:33:01,741 ERROR: Exception on /user/dada [GET] [in /Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py:1761]
+2020-04-23 15:33:57,320 INFO: Microblog startup [in /Users/wongchiuching/Downloads/microblog-1/app/__init__.py:74]
+2020-04-23 15:33:58,246 ERROR: Exception on / [GET] [in /Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py:1761]
 Traceback (most recent call last):
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -69,8 +70,8 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/wongchiuching/Downloads/microblog-1/app/main/routes.py", line 70, in user
-    next_url=next_url, prev_url=prev_url)
+  File "/Users/wongchiuching/Downloads/microblog-1/app/main/routes.py", line 40, in index
+    prev_url=prev_url)
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask/templating.py", line 117, in _render
@@ -83,8 +84,8 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/wongchiuching/Downloads/microblog-1/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
+  File "/Users/wongchiuching/Downloads/microblog-1/app/templates/index.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
   File "/Users/wongchiuching/Downloads/microblog-1/app/templates/base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
@@ -108,4 +109,4 @@ Traceback (most recent call last):
   File "/Users/wongchiuching/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1776, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.BuildError: Could not build url for endpoint 'main.edit_bill'. Did you forget to specify values ['bill_id']?
-2020-04-23 15:33:11,203 INFO: Microblog startup [in /Users/wongchiuching/Downloads/microblog-1/app/__init__.py:74]
+2020-04-23 15:34:34,711 INFO: Microblog startup [in /Users/wongchiuching/Downloads/microblog-1/app/__init__.py:74]

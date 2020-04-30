@@ -4,8 +4,6 @@ from app import create_app, db
 from app.models import User, Post
 from config import Config
 
-Test
-
 class TestConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = 'sqlite://'

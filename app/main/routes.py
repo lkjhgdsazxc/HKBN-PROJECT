@@ -118,5 +118,69 @@ def unfollow(username):
     return redirect(url_for('main.user', username=username))
 
 
+@bp.route('/', methods=['GET', 'POST'])    #家居
+@bp.route('/Home', methods=['GET', 'POST'])
+@login_required
+def Home():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Your post is now live!'))
+        return redirect(url_for('main.Home'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('main.Home', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('main.Home', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template("Home.html", title=_('Home'), form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
 
 
+@bp.route('/', methods=['GET', 'POST'])    #流動
+@bp.route('/flow', methods=['GET', 'POST'])
+@login_required
+def flow():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Your post is now live!'))
+        return redirect(url_for('main.flow'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('main.flow', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('main.flow', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template("flow.html", title=_('flow'), form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
+
+@bp.route('/', methods=['GET', 'POST'])   #外遊
+@bp.route('/Travel', methods=['GET', 'POST'])
+@login_required
+def Travel():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(_('Your post is now live!'))
+        return redirect(url_for('main.Travel'))
+    page = request.args.get('page', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+        page, current_app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('main.Travel', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('main.Travel', page=posts.prev_num) \
+        if posts.has_prev else None
+    return render_template("Travel.html", title=_('Travel'), form=form,
+                           posts=posts.items, next_url=next_url,
+                           prev_url=prev_url)
